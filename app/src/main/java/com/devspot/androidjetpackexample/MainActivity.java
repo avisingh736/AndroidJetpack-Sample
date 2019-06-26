@@ -1,11 +1,14 @@
 package com.devspot.androidjetpackexample;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.devspot.androidjetpackexample.databinding.ActivityMainBinding;
 import com.devspot.androidjetpackexample.models.Profile;
+import com.devspot.androidjetpackexample.viewmodels.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,19 +17,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        binding.setProfile(getProfile());
+        //binding.setProfile(getProfile());
+
+        MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        binding.setProfile(mainViewModel.getProfile());
 
     }
 
     private Profile getProfile() {
-        Profile profile = new Profile();
-        profile.setUserName("Deep Raj");
-        profile.setEmail("mdevspot@gmail.com");
-        profile.setMobileNo("8871608443");
-        profile.setAge("25");
-        profile.setMaritalStatus(false);
-        profile.setProfileImage("https://www.mdevspot.com/profile/deep.jpg");
-
-        return profile;
+        return new Profile("mDevSpot","mdevspot@gmail.com","8871608443","https://www.mdevspot.com/profile/deep.jpg","25");
     }
 }

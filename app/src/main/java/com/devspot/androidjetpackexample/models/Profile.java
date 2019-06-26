@@ -10,6 +10,16 @@ public class Profile implements Serializable {
     private String age;
     private boolean maritalStatus;
 
+    public Profile(){}
+
+    public Profile(String userName,String email,String mobileNo, String profileImage, String age) {
+        this.userName = userName;
+        this.email = email;
+        this.mobileNo = mobileNo;
+        this.profileImage = profileImage;
+        this.age = age;
+    }
+
     public String getUserName() {
         return userName;
     }
