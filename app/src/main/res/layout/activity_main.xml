@@ -16,7 +16,7 @@
             android:id="@+id/ivProfileImage"
             android:layout_width="0dp"
             android:layout_height="250dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_image_placeholder"
             android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@{profile.userName, default=Avinash}"
             android:padding="10dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivProfileImage" />
 
